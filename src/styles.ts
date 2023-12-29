@@ -23,11 +23,14 @@ export const EstiloGlobal = createGlobalStyle`
     background-color: ${cores.primariaClara2};
     color: ${cores.primaria};
     font-size: 10px;
+
   }
 
   .container{
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+
   }
 `

@@ -13,7 +13,11 @@ export const HeaderContainer = styled.header`
   /* height: 384px; */
   padding: 40px;
   display: flex;
+  gap: 16px;
   /* justify-content: space-between; */
+  @media (max-width: 1024px) {
+    padding: 16px 16px;
+  }
 
   a,
   p {
@@ -52,6 +56,11 @@ export const HeaderContainer = styled.header`
     width: 100%;
     align-self: center;
     margin-top: 140px;
+
+    @media (max-width: 1024px) {
+      font-size: 18px;
+      margin-top: 40px;
+    }
   }
 
   .antecede {
@@ -63,6 +72,11 @@ export const Topo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 16px;
+  }
 `
 
 export const CabecalhoRestaurante = styled.div`
@@ -95,5 +109,13 @@ export const CabecalhoRestaurante = styled.div`
   h2 {
     font-weight: 900;
     font-size: 32px;
+    @media (max-width: 1024px) {
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 1024px) {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: auto;
   }
 `

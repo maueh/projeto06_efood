@@ -5,6 +5,10 @@ import { cores } from '../../styles'
 export const Container = styled.section`
   padding: 80px 0 120px 0;
   background-color: ${cores.primariaClara2};
+
+  @media (max-width: 1024px) {
+    padding: 40px 16px;
+  }
 `
 
 export const List = styled.ul`
@@ -14,7 +18,7 @@ export const List = styled.ul`
   column-gap: 80px;
 
   @media (max-width: 1024px) {
-    display: block;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 `

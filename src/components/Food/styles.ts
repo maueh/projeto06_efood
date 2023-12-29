@@ -6,7 +6,7 @@ export const Card = styled.div`
   color: ${cores.primariaClara1};
   padding: 0px;
   position: relative;
-  max-width: 320px;
+  /* max-width: 320px; */
 
   img {
     width: 100%;
