@@ -12,4 +12,9 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr;
   row-gap: 48px;
   column-gap: 80px;
+
+  @media (max-width: 1024px) {
+    display: block;
+    gap: 40px;
+  }
 `
