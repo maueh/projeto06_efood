@@ -11,46 +11,45 @@ import {
 
 import estrela from '../../assets/images/estrela.png'
 import Button from '../Button'
+import { Cardapio } from '../Food'
 
-type Props = {
-  name: string
-  description: string
-  category: string
-  infos: string[]
-  evaluation: number
-  image: string
+export type Restaurant = {
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: Cardapio[]
 }
 
-const RestaurantCard = ({
-  name,
-  description,
-  category,
-  infos,
-  evaluation,
-  image
-}: Props) => (
+type Props = {
+  restaurant: Restaurant
+}
+
+const RestaurantCard = ({ restaurant }: Props) => (
   <>
     <Card>
-      <img src={image} alt={name} />
+      <img src={restaurant.capa} alt={restaurant.titulo} />
+
       <MainContent>
         <Infos>
-          {infos.map((info) => (
-            <Tag key={info}>{info}</Tag>
-          ))}
-          <Tag>{category}</Tag>
+          {restaurant.destacado && <Tag key="destaque">Destaque da semana</Tag>}
+          <Tag>{restaurant.tipo}</Tag>
         </Infos>
         <LinhaConteudo>
-          <Titulo>{name}</Titulo>
+          <Titulo>{restaurant.titulo}</Titulo>
           <Nota>
-            <span>{evaluation}</span>
+            <span>{restaurant.avaliacao}</span>
             <img src={estrela} alt="" />
           </Nota>
         </LinhaConteudo>
-        <Descricao>{description}</Descricao>
+        <Descricao>{restaurant.descricao}</Descricao>
         <Button
           type="link"
           title="Acessar a página do restaturante"
-          to="/perfil"
+          to={`/perfil/${restaurant.id}`}
         >
           Saiba mais
         </Button>

@@ -1,6 +1,8 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
 import { CabecalhoRestaurante, HeaderContainer, Topo } from './styles'
+import { useEffect, useState } from 'react'
+import { Restaurant } from '../Restaurant'
 
 export type Props = {
   paginaInicial: boolean
@@ -8,8 +10,22 @@ export type Props = {
 
 const Header = () => {
   const location = useLocation()
+  const { id } = useParams()
+
+  const [restaurante, setRestaurante] = useState<Restaurant>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setRestaurante(res))
+  }, [])
+
+  if (!restaurante) {
+    return <h3>Carregando...</h3>
+  }
 
   const paginaInicial = location.pathname === '/' ? true : false
+
   return (
     <>
       <HeaderContainer>
@@ -45,10 +61,12 @@ const Header = () => {
         </div>
       </HeaderContainer>
       {!paginaInicial && (
-        <CabecalhoRestaurante>
+        <CabecalhoRestaurante
+          style={{ backgroundImage: `url(${restaurante.capa})` }}
+        >
           <div className="container">
-            <div>Categoria</div>
-            <h2>Nome restaurante</h2>
+            <div>{restaurante.tipo}</div>
+            <h2>{restaurante.titulo}</h2>
           </div>
         </CabecalhoRestaurante>
       )}

@@ -81,7 +81,7 @@ export const Topo = styled.div`
 
 export const CabecalhoRestaurante = styled.div`
   background-color: aliceblue;
-  background-image: url(${fundoRestaurante});
+  /* background-image: url(${fundoRestaurante}); */
   background-repeat: no-repeat;
   background-size: cover;
   height: 280px;

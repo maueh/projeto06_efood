@@ -2,29 +2,48 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
-export const Card = styled.div`
-  box-sizing: border-box;
-  background-color: ${cores.branca};
+export const ModalContainer = styled.dialog`
+  background-color: ${cores.primaria};
+  color: ${cores.branca};
 
-  padding: 0px;
+  border: none;
+  padding: 32px;
   position: relative;
-  overflow: hidden;
-
-  /* max-width: 472px; */
   width: 100%;
   ${TagContainer} {
     margin-right: 8px;
   }
 
-  img {
-    width: 100%;
-    /* height: 272px; */
-    display: block;
+  p {
+    font-size: 14px;
+    margin-bottom: 1rem;
+  }
+
+  .imgFood {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    float: left;
+    padding-right: 24px;
+  }
+
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: 900;
+
+    margin-bottom: 16px;
   }
 `
 export const MainContent = styled.div`
   padding: 0 8px 8px 8px;
-  border: 4px solid ${cores.primaria};
+  border: 1px solid ${cores.primaria};
+  border-width: 0 1px 1px 1px;
 `
 
 export const LinhaConteudo = styled.div`
@@ -40,10 +59,6 @@ export const Nota = styled.span`
   font-weight: 700;
   span {
     font-size: 18px;
-  }
-
-  > img {
-    height: auto;
   }
 `
 
