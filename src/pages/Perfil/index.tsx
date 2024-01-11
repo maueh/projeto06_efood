@@ -30,7 +30,7 @@ const Perfil = () => {
   }, [food])
 
   function carregarModal(cardapio: Cardapio) {
-    console.log(`Chamando modal para ${cardapio.nome}`)
+    console.log(`Set food para ${cardapio.nome}`)
     setFood(cardapio)
     //setModalAberta(true)
   }
@@ -53,6 +53,7 @@ const Perfil = () => {
       <HeaderPerfil restaurante={restaurante} />
       <FoodsList restaurant={restaurante} carregarModal={carregarModal} />
       {food ? <Modal food={food} handleModal={handleModal} /> : null}
+      {/* <Modal food={food} handleModal={handleModal} /> */}
     </>
   )
 }

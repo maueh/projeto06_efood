@@ -3,6 +3,7 @@ import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const ModalContainer = styled.dialog`
+  z-index: 10;
   display: flex;
   column-gap: 24px;
   background-color: ${cores.primaria};
