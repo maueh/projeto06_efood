@@ -9,9 +9,13 @@ function App() {
   return (
     <BrowserRouter>
       <EstiloGlobal />
-      <Header />
-      <Rotas />
-      <Footer />
+      <div className="wrapper">
+        <Header />
+        <main>
+          <Rotas />
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   )
 }

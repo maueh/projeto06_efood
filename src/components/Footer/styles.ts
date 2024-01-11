@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cores } from '../../styles'
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.footer`
   background-color: ${cores.primariaClara1};
   width: 100%;
   height: 298px;
@@ -12,15 +12,16 @@ export const HeaderContainer = styled.header`
 
   p {
     max-width: 480px;
+    margin-top: 80px;
   }
 
   .container {
     display: flex;
     flex-direction: column;
-    align-content: space-between;
-    justify-content: space-between;
+    /* align-content: space-between; */
+    /* justify-content: space-between; */
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
   }
 `
 

@@ -11,7 +11,13 @@ export const ButtonContainer = styled.button`
   padding: 4px 6px;
   display: inline-block;
   text-decoration: none;
-  width: 100%;
+  width: auto;
+
+  cursor: pointer;
+
+  &.fullWidth {
+    width: 100%;
+  }
 `
 
 export const ButtonLink = styled(Link)`

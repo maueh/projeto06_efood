@@ -14,6 +14,7 @@ export const HeaderContainer = styled.header`
   padding: 40px;
   display: flex;
   gap: 16px;
+
   /* justify-content: space-between; */
   @media (max-width: 1024px) {
     padding: 16px 16px;
@@ -29,8 +30,9 @@ export const HeaderContainer = styled.header`
 
   .container {
     display: flex;
+    gap: 16px;
     flex-direction: column;
-    align-content: space-between;
+    /* align-content: space-between; */
     justify-content: space-between;
     /* align-items: center; */
     height: 100%;
@@ -66,56 +68,29 @@ export const HeaderContainer = styled.header`
   .antecede {
     order: -1;
   }
+
+  .distribute {
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+  }
+
+  .flex-start {
+    justify-content: flex-start;
+  }
+
+  .flex-end {
+    justify-content: flex-end;
+  }
 `
 
 export const Topo = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: stretch;
   align-items: center;
   gap: 16px;
   @media (max-width: 480px) {
     flex-direction: column;
     gap: 16px;
-  }
-`
-
-export const CabecalhoRestaurante = styled.div`
-  background-color: aliceblue;
-  /* background-image: url(${fundoRestaurante}); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: space-between;
-  padding-top: 25px;
-  padding-bottom: 32px;
-  font-weight: 100;
-  color: ${cores.branca};
-
-  div {
-    font-size: 32px;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-  }
-
-  h2 {
-    font-weight: 900;
-    font-size: 32px;
-    @media (max-width: 1024px) {
-      margin-top: 40px;
-    }
-  }
-  @media (max-width: 1024px) {
-    padding-left: 16px;
-    padding-right: 16px;
-    height: auto;
   }
 `

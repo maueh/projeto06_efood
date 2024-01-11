@@ -3,8 +3,11 @@ import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const ModalContainer = styled.dialog`
+  display: flex;
+  column-gap: 24px;
   background-color: ${cores.primaria};
   color: ${cores.branca};
+  align-self: center;
 
   border: none;
   padding: 32px;
@@ -17,20 +20,23 @@ export const ModalContainer = styled.dialog`
   p {
     font-size: 14px;
     margin-bottom: 1rem;
+    line-height: 22px;
   }
 
   .imgFood {
     width: 280px;
     height: 280px;
     object-fit: cover;
-    float: left;
-    padding-right: 24px;
   }
 
   .close {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
   }
 
   h1 {
@@ -38,6 +44,11 @@ export const ModalContainer = styled.dialog`
     font-weight: 900;
 
     margin-bottom: 16px;
+  }
+
+  &::backdrop {
+    background: #000;
+    opacity: 80%;
   }
 `
 export const MainContent = styled.div`
@@ -81,4 +92,12 @@ export const Infos = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
+`
+
+export const PageContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `

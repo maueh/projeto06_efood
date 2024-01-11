@@ -4,18 +4,19 @@ import { cores } from '../../styles'
 export const Card = styled.div`
   background-color: ${cores.primaria};
   color: ${cores.primariaClara1};
-  padding: 0px;
   position: relative;
-  /* max-width: 320px; */
+  border: 8px solid ${cores.primaria};
+  border-radius: 8px;
 
   img {
     width: 100%;
+    height: 167px;
+    object-fit: cover;
+    border-radius: 8px;
   }
 `
 export const MainContent = styled.div`
-  padding: 0 8px 8px 8px;
   border: 1px solid ${cores.primaria};
-  border-width: 0 1px 1px 1px;
 `
 
 export const LinhaConteudo = styled.div`
@@ -26,13 +27,18 @@ export const Titulo = styled.h3`
   font-weight: bold;
   font-size: 16px;
   display: block;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  margin-top: 8px;
 `
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `

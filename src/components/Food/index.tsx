@@ -1,6 +1,7 @@
 import { Card, Descricao, Titulo, MainContent, LinhaConteudo } from './styles'
 
 import Button from '../Button'
+import { useEffect } from 'react'
 
 export interface Cardapio {
   foto: string
@@ -13,34 +14,41 @@ export interface Cardapio {
 
 type Props = {
   cardapio: Cardapio
-  name: string
-  description: string
-  image: string
+  // name: string
+  // description: string
+  // image: string
+  carregarModal: (cardapio: Cardapio) => void
 }
 
-const modal = document.querySelector('dialog')
+let modal
 
-const FoodCard = ({ name, description, image, cardapio }: Props) => (
-  <>
-    <Card>
-      <img src={image} alt={name} />
-      <MainContent>
-        <LinhaConteudo>
-          <Titulo>{name}</Titulo>
-        </LinhaConteudo>
-        <Descricao>{description}</Descricao>
-        <Button
-          type="button"
-          title="Adicionar ao carrinho"
-          onClick={() => {
-            modal && modal.showModal()
-          }}
-        >
-          Adicionar ao carrinho
-        </Button>
-      </MainContent>
-    </Card>
-  </>
-)
+const FoodCard = ({ cardapio, carregarModal }: Props) => {
+  useEffect(() => {
+    modal = document.getElementById('food-modal')
+    console.log(modal)
+  }, [])
 
+  return (
+    <>
+      <Card>
+        <img src={cardapio.foto} alt={cardapio.nome} />
+        <MainContent>
+          <LinhaConteudo>
+            <Titulo>{cardapio.nome}</Titulo>
+          </LinhaConteudo>
+          <Descricao>{cardapio.descricao}</Descricao>
+          <Button
+            type="button"
+            title={`Ver detalhes de ${cardapio.nome}`}
+            onClick={() => {
+              carregarModal(cardapio)
+            }}
+          >
+            Mais detalhes
+          </Button>
+        </MainContent>
+      </Card>
+    </>
+  )
+}
 export default FoodCard

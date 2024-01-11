@@ -12,6 +12,7 @@ import {
 import estrela from '../../assets/images/estrela.png'
 import Button from '../Button'
 import { Cardapio } from '../Food'
+import { TextCase } from '../../styles'
 
 export type Restaurant = {
   id: number
@@ -36,7 +37,7 @@ const RestaurantCard = ({ restaurant }: Props) => (
       <MainContent>
         <Infos>
           {restaurant.destacado && <Tag key="destaque">Destaque da semana</Tag>}
-          <Tag>{restaurant.tipo}</Tag>
+          <Tag textCase={TextCase.capitalize}>{restaurant.tipo}</Tag>
         </Infos>
         <LinhaConteudo>
           <Titulo>{restaurant.titulo}</Titulo>
