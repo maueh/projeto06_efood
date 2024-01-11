@@ -29,33 +29,9 @@ const Modal = ({ food, handleModal }: Props) => {
     console.log(`Em modal, food = ${food.nome}`)
     console.log(modal)
     if (food !== undefined) {
-      // if (modal !== null) {
-      //console.log(modal)
-      console.log('Deve abrir a modal')
       modal.showModal()
-      // }
-    } /*else {
-      if (modal !== null) {
-        modal.close()
-        handleModal(false)
-        // setModalAberta(false)
-      }
-    }*/
+    }
   }, [])
-
-  // document
-  //   .getElementsByClassName('overlay')[0]
-  //   ?.addEventListener('click', () => {
-  //     console.log('backdrop?')
-  //     handleModal(false)
-  //     // console.log(modalAberta)
-  //   })
-
-  // document.getElementById('overlay')?.addEventListener('click', () => {
-  //   console.log('backdrop?')
-  //   handleModal(false)
-  //   // console.log(modalAberta)
-  // })
 
   return (
     <>
@@ -82,11 +58,6 @@ const Modal = ({ food, handleModal }: Props) => {
             >{`Adicionar ao carrinho - ${formataPreco(food.preco)}`}</Button>
           </div>
         </ModalContainer>
-        {/* <div
-          id="overlay"
-          className={food === null ? 'overlay' : 'overlay visivel'}
-          onClick={() => handleModal(false)}
-        ></div> */}
       </PageContainer>
     </>
   )

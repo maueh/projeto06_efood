@@ -1,8 +1,7 @@
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+
 import logo from '../../assets/images/logo.png'
 import { HeaderContainer, Topo } from './styles'
-import { useEffect, useState } from 'react'
-import { Restaurant } from '../Restaurant'
 
 export type Props = {
   paginaInicial: boolean

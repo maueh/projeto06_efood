@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 import fundo from '../../assets/images/fundo.png'
-import fundoRestaurante from '../../assets/images/imagem_1_fundo.png'
+// import fundoRestaurante from '../../assets/images/imagem_1_fundo.png'
 
 import { cores } from '../../styles'
 
 export const HeaderContainer = styled.header`
   background-color: ${cores.primariaClara1};
   background-image: url(${fundo});
-  background-size: cover;
   width: 100%;
   /* height: 384px; */
   padding: 40px;

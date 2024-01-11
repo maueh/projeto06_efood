@@ -61,26 +61,4 @@ export const EstiloGlobal = createGlobalStyle`
     justify-content: space-between;
     height: 100vh;
   }
-
-/*
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    opacity: 60%;
-    overflow-y: visible;
-    display: none;
-    cursor: grab;
-
-    &.visivel {
-    display: flex;
-    cursor: help;
-    display: block;
-    width: 100%;
-    height: 10%;
-    }
-  }*/
 `
