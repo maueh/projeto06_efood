@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
-
 import { Cardapio } from '../Food'
 import fechar from '../../assets/images/close.png'
 import Button from '../Button'
@@ -18,60 +16,18 @@ export const formataPreco = (preco = 0) => {
 }
 
 const Modal = ({ food, handleModal }: Props) => {
-  const modalRef = useRef<HTMLDialogElement>(null)
-  /*
-  useEffect(() => {
-    console.log('Rodou de novo')
-    modal = document.getElementById('food-modal') as HTMLDialogElement
-  }, [food])*/
-
-  /*
-  useEffect(() => {
-    console.log(`Em modal, food = ${food ? food.nome : food}`)
-    console.log(modal)
-    if (food) {
-      console.log(
-        `Deve abrir a modal - Food em modal = ${food ? food.nome : food}`
-      )
-      // modal ? modal.showModal() : null
-      modalRef ? modalRef.current?.showModal() : null
-    } else {
-      console.log('Deve fechar a modal')
-      // modal ? modal.close() : null
-      if (modalRef) {
-        console.log(modalRef)
-        modalRef ? modalRef.current?.showModal() : null
-        fecharModal()
-        //modalRef.close()
-      }
-      handleModal(false)
-    }
-  })
-
-  useEffect(() => {
-    clicouEsc ? setClicouEsc(false) : null
-    handleModal(false)
-  }, [clicouEsc])
-
-  useEffect(() => {
-    console.log(i)
-    if (food) console.log(food.nome)
-    i += 1
-  })
-  */
-
   return (
     <>
       <PageContainer>
         <ModalContainer
           id="food-modal"
           className="container-dialog"
-          ref={modalRef}
           open={false}
           onLoad={(e) => {
+            //Abre a modal com o fundo
             e.currentTarget.showModal()
           }}
-          onClose={(e) => {
+          onClose={() => {
             //Fecha a caixa ao teclar ESC
             handleModal(false)
           }}
