@@ -13,26 +13,25 @@ const Cart = () => {
           <CardFood>
             <img className="food-image" src={imagem} alt="" />
             <div>
-              <h3>Nome do prato</h3>
-
+              <h3>Nome do prato lorem ipsum dolor sit amet</h3>
               <p>R$ 60,00</p>
               <IconButton title="Excluir" icone={excluir} />
             </div>
           </CardFood>
-
           <CardFood>
             <img className="food-image" src={imagem} alt="" />
             <div>
               <h3>Nome do prato</h3>
               <p>R$ 60,00</p>
-              <button
-                type="button"
-                className="excluir"
-                id="excluir"
-                title={`Excluir`}
-              >
-                <img className="close2" src={excluir} alt="Fechar" />
-              </button>
+              <IconButton title="Excluir" icone={excluir} />
+            </div>
+          </CardFood>
+          <CardFood>
+            <img className="food-image" src={imagem} alt="" />
+            <div>
+              <h3>Nome do prato</h3>
+              <p>R$ 60,00</p>
+              <IconButton title="Excluir" icone={excluir} />
             </div>
           </CardFood>
         </ul>
