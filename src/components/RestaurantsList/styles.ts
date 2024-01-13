@@ -22,7 +22,7 @@ export const List = styled.ul`
     gap: 16px;
   }
   @media (max-width: ${breakpoints.tablet}) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 `

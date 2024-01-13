@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { IconButtonStyle } from '../IconButton/styles'
 
 export const Overlay = styled.div`
@@ -37,6 +37,10 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   position: sticky;
   overflow-y: auto;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-left: 56px;
+  }
 
   .right {
     float: right;

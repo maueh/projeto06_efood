@@ -36,10 +36,6 @@ export const HeaderContainer = styled.header`
     /* align-items: center; */
     height: 100%;
     width: 100%;
-
-    @media (max-width: ${breakpoints.desktop}) {
-      width: 80%;
-    }
   }
 
   h1 {
@@ -62,7 +58,7 @@ export const HeaderContainer = styled.header`
     align-self: center;
     margin-top: 140px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: ${breakpoints.desktop}) {
       font-size: 18px;
       margin-top: 40px;
     }
