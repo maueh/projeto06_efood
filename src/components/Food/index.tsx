@@ -3,7 +3,7 @@ import { Card, Descricao, Titulo, MainContent, LinhaConteudo } from './styles'
 import Button from '../Button'
 import { useEffect } from 'react'
 
-export interface Cardapio {
+export interface Food {
   foto: string
   preco: number
   id: number
@@ -13,16 +13,16 @@ export interface Cardapio {
 }
 
 type Props = {
-  cardapio: Cardapio
+  food: Food
   // name: string
   // description: string
   // image: string
-  carregarModal: (cardapio: Cardapio) => void
+  carregarModal: (food: Food) => void
 }
 
 let modal
 
-const FoodCard = ({ cardapio, carregarModal }: Props) => {
+const FoodCard = ({ food, carregarModal }: Props) => {
   useEffect(() => {
     modal = document.getElementById('food-modal')
     console.log(modal)
@@ -31,17 +31,17 @@ const FoodCard = ({ cardapio, carregarModal }: Props) => {
   return (
     <>
       <Card>
-        <img src={cardapio.foto} alt={cardapio.nome} />
+        <img src={food.foto} alt={food.nome} />
         <MainContent>
           <LinhaConteudo>
-            <Titulo>{cardapio.nome}</Titulo>
+            <Titulo>{food.nome}</Titulo>
           </LinhaConteudo>
-          <Descricao>{cardapio.descricao}</Descricao>
+          <Descricao>{food.descricao}</Descricao>
           <Button
             type="button"
-            title={`Ver detalhes de ${cardapio.nome}`}
+            title={`Ver detalhes de ${food.nome}`}
             onClick={() => {
-              carregarModal(cardapio)
+              carregarModal(food)
             }}
           >
             Mais detalhes

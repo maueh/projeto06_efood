@@ -1,10 +1,11 @@
-import { Cardapio } from '../Food'
+import { Food } from '../Food'
 import fechar from '../../assets/images/close.png'
 import Button from '../Button'
 import { ModalContainer, PageContainer } from './styles'
+import IconButton from '../IconButton'
 
 type Props = {
-  food: Cardapio
+  food: Food
   handleModal: (estaAberta: boolean) => void
 }
 
@@ -35,6 +36,13 @@ const Modal = ({ food, handleModal }: Props) => {
           <img className="imgFood" src={food.foto} alt="" />
           <div>
             <h1>{food.nome}</h1>
+
+            <IconButton
+              icone={fechar}
+              title={`Fechar caixa de detalhes de ${food.nome}`}
+              onClick={() => handleModal(false)}
+            />
+            {/*
             <button
               type="button"
               className="close"
@@ -43,7 +51,7 @@ const Modal = ({ food, handleModal }: Props) => {
               title={`Fechar caixa de detalhes de ${food.nome}`}
             >
               <img className="close2" src={fechar} alt="Fechar" />
-            </button>
+        </button>*/}
             <p>{food.descricao}</p>
             <p>Serve: de {food.porcao}</p>
             <Button

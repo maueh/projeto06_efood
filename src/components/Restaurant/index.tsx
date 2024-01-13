@@ -11,7 +11,7 @@ import {
 
 import estrela from '../../assets/images/estrela.png'
 import Button from '../Button'
-import { Cardapio } from '../Food'
+import { Food } from '../Food'
 import { TextCase } from '../../styles'
 
 export type Restaurant = {
@@ -22,7 +22,7 @@ export type Restaurant = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: Cardapio[]
+  cardapio: Food[]
 }
 
 type Props = {

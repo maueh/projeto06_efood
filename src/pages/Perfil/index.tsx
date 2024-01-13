@@ -1,16 +1,20 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-import { Cardapio } from '../../components/Food'
+import { Food } from '../../components/Food'
 import FoodsList from '../../components/FoodsList'
 import { Restaurant } from '../../components/Restaurant'
 import Modal from '../../components/Modal'
 import HeaderPerfil from '../../components/HeaderPerfil'
+import { useGetRestaurantDataQuery } from '../../services/api'
 
 const Perfil = () => {
   const { id } = useParams()
-  const [restaurante, setRestaurante] = useState<Restaurant>()
-  const [food, setFood] = useState<Cardapio | null>()
+
+  const { data: restaurante } = useGetRestaurantDataQuery(id!)
+
+  // const [restaurante, setRestaurante] = useState<Restaurant>()
+  const [food, setFood] = useState<Food | null>()
   /*
   const [modalAberta, setModalAberta] = useState<boolean>(false)
 
@@ -18,20 +22,22 @@ const Perfil = () => {
     console.log(`Em Perfil, modal mudou para ${modalAberta}`)
   }, [modalAberta])*/
 
+  /*
   //Carrega os dados do cardapio do restaurante com base no id
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setRestaurante(res))
   }, [id])
+*/
 
   useEffect(() => {
     console.log(`Em Perfil, food = ${food?.nome}`)
   }, [food])
 
-  function carregarModal(cardapio: Cardapio) {
-    console.log(`Set food para ${cardapio.nome}`)
-    setFood(cardapio)
+  function carregarModal(food: Food) {
+    console.log(`Set food para ${food.nome}`)
+    setFood(food)
     //setModalAberta(true)
   }
 

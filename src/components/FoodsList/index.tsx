@@ -1,11 +1,11 @@
 import { Container, List } from './styles'
 
-import FoodCard, { Cardapio } from '../Food'
+import FoodCard, { Food } from '../Food'
 import { Restaurant } from '../Restaurant'
 
 export type Props = {
   restaurant: Restaurant
-  carregarModal: (cardapio: Cardapio) => void
+  carregarModal: (food: Food) => void
 }
 
 const FoodsList = ({ restaurant, carregarModal }: Props) => {
@@ -14,11 +14,7 @@ const FoodsList = ({ restaurant, carregarModal }: Props) => {
       <div className="container">
         <List>
           {restaurant.cardapio.map((food) => (
-            <FoodCard
-              key={food.id}
-              cardapio={food}
-              carregarModal={carregarModal}
-            />
+            <FoodCard key={food.id} food={food} carregarModal={carregarModal} />
           ))}
         </List>
       </div>

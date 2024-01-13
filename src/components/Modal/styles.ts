@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
+import { IconButtonStyle } from '../IconButton/styles'
 
 export const ModalContainer = styled.dialog`
   z-index: 10;
@@ -30,7 +31,13 @@ export const ModalContainer = styled.dialog`
     object-fit: cover;
   }
 
-  .close {
+  ${IconButtonStyle} {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  /* .close {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -38,7 +45,7 @@ export const ModalContainer = styled.dialog`
     background: none;
     border: none;
     padding: 8px;
-  }
+  } */
 
   h1 {
     font-size: 18px;
