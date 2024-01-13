@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const CabecalhoRestaurante = styled.div`
   background-color: aliceblue;
@@ -28,12 +28,20 @@ export const CabecalhoRestaurante = styled.div`
     height: 100%;
     width: 100%;
     z-index: 1;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 80%;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 96%;
+    }
   }
 
   h2 {
     font-weight: 900;
     font-size: 32px;
-    @media (max-width: 1024px) {
+    @media (max-width: ${breakpoints.desktop}) {
       margin-top: 40px;
     }
   }
@@ -48,7 +56,7 @@ export const CabecalhoRestaurante = styled.div`
     content: '';
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: ${breakpoints.desktop}) {
     padding-left: 16px;
     padding-right: 16px;
     height: auto;

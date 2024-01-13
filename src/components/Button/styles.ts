@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const ButtonContainer = styled.button`
@@ -16,6 +16,10 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
 
   &.fullWidth {
+    width: 100%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
     width: 100%;
   }
 `

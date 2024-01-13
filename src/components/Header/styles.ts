@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import fundo from '../../assets/images/fundo.png'
 // import fundoRestaurante from '../../assets/images/imagem_1_fundo.png'
 
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const HeaderContainer = styled.header`
   background-color: ${cores.primariaClara1};
@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
   gap: 16px;
 
   /* justify-content: space-between; */
-  @media (max-width: 1024px) {
+  @media (max-width: ${breakpoints.desktop}) {
     padding: 16px 16px;
   }
 
@@ -36,6 +36,10 @@ export const HeaderContainer = styled.header`
     /* align-items: center; */
     height: 100%;
     width: 100%;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 80%;
+    }
   }
 
   h1 {
@@ -76,10 +80,16 @@ export const HeaderContainer = styled.header`
 
   .flex-start {
     justify-content: flex-start;
+    @media (max-width: ${breakpoints.desktop}) {
+      justify-content: center;
+    }
   }
 
   .flex-end {
     justify-content: flex-end;
+    @media (max-width: ${breakpoints.desktop}) {
+      justify-content: center;
+    }
   }
 `
 
@@ -88,8 +98,17 @@ export const Topo = styled.div`
   justify-content: stretch;
   align-items: center;
   gap: 16px;
-  @media (max-width: 480px) {
+  @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
     gap: 16px;
   }
+`
+
+export const CartButton = styled.button`
+  color: ${cores.primaria};
+  font-size: 18px;
+  font-weight: 900;
+  background: none;
+  border: none;
+  cursor: pointer;
 `

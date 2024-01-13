@@ -3,6 +3,8 @@ import fechar from '../../assets/images/close.png'
 import Button from '../Button'
 import { ModalContainer, PageContainer } from './styles'
 import IconButton from '../IconButton'
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
 
 type Props = {
   food: Food
@@ -17,12 +19,20 @@ export const formataPreco = (preco = 0) => {
 }
 
 const Modal = ({ food, handleModal }: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(food))
+    dispatch(open())
+    handleModal(false)
+  }
+
   return (
     <>
       <PageContainer>
         <ModalContainer
           id="food-modal"
-          className="container-dialog"
+          className="container-dialog2"
           open={false}
           onLoad={(e) => {
             //Abre a modal com o fundo
@@ -42,22 +52,13 @@ const Modal = ({ food, handleModal }: Props) => {
               title={`Fechar caixa de detalhes de ${food.nome}`}
               onClick={() => handleModal(false)}
             />
-            {/*
-            <button
-              type="button"
-              className="close"
-              id="close"
-              onClick={() => handleModal(false)}
-              title={`Fechar caixa de detalhes de ${food.nome}`}
-            >
-              <img className="close2" src={fechar} alt="Fechar" />
-        </button>*/}
             <p>{food.descricao}</p>
             <p>Serve: de {food.porcao}</p>
             <Button
               type="button"
               title={`Adicionar ${food.nome} ao carrinho`}
               fullWidth={false}
+              onClick={addToCart}
             >{`Adicionar ao carrinho - ${formataPreco(food.preco)}`}</Button>
           </div>
         </ModalContainer>

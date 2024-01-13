@@ -15,10 +15,12 @@ function App() {
       <BrowserRouter>
         <EstiloGlobal />
         <div className="wrapper">
-          <Header />
-          <main>
-            <Rotas />
-          </main>
+          <div className="upperWrapper">
+            <Header />
+            <main>
+              <Rotas />
+            </main>
+          </div>
           <Footer />
           <Cart />
         </div>

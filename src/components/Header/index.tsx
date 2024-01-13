@@ -1,7 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../../assets/images/logo.png'
-import { HeaderContainer, Topo } from './styles'
+import { CartButton, HeaderContainer, Topo } from './styles'
+import { open } from '../../store/reducers/cart'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
 export type Props = {
   paginaInicial: boolean
@@ -9,6 +12,11 @@ export type Props = {
 
 const Header = () => {
   const location = useLocation()
+  const dispatch = useDispatch()
+  const openCart = () => {
+    dispatch(open())
+  }
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const paginaInicial = location.pathname === '/' ? true : false
 
@@ -33,7 +41,9 @@ const Header = () => {
                   </ul>
                 </nav>
                 <div className="distribute flex-end">
-                  <p>0 produtos no carrinho</p>
+                  <CartButton onClick={openCart}>
+                    {items.length} produto(s) no carrinho
+                  </CartButton>
                 </div>
               </>
             ) : null}

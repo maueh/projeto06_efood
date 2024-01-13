@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import IconButton from '../IconButton'
 import { IconButtonStyle } from '../IconButton/styles'
 
 export const Overlay = styled.div`
@@ -8,7 +7,7 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #000;
   opacity: 80%;
 `
@@ -18,10 +17,14 @@ export const CartContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  display: flex;
+  height: 100vh;
+  display: none;
   justify-content: flex-end;
   z-index: 1;
+
+  &.is-open {
+    display: flex;
+  }
 `
 
 export const Sidebar = styled.aside`
@@ -32,6 +35,8 @@ export const Sidebar = styled.aside`
   font-size: 14px;
   width: 100%;
   max-width: 360px;
+  position: sticky;
+  overflow-y: auto;
 
   .right {
     float: right;

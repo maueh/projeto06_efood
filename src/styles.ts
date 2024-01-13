@@ -13,6 +13,11 @@ export const cores = {
   // preta: '#111',
 }
 
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px'
+}
+
 export const EstiloGlobal = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -36,6 +41,16 @@ export const EstiloGlobal = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+    /* padding-left: 24px;
+    padding-right: 24px; */
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 80%;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 96%;
+    }
   }
 
   .container-dialog{
@@ -60,5 +75,11 @@ export const EstiloGlobal = createGlobalStyle`
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+  }
+
+  .upperWrapper{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
   }
 `
