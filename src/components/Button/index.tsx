@@ -7,6 +7,7 @@ type Props = {
   to?: string
   onClick?: () => void
   children: string
+  submit?: boolean
 }
 
 const Button = ({
@@ -15,12 +16,13 @@ const Button = ({
   to,
   onClick,
   children,
-  fullWidth = true
+  fullWidth = true,
+  submit
 }: Props) => {
   if (type === 'button') {
     return (
       <ButtonContainer
-        type="button"
+        type={submit ? 'submit' : 'button'}
         title={title}
         onClick={onClick}
         className={fullWidth ? 'fullWidth' : "'"}

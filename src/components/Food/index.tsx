@@ -1,7 +1,7 @@
-import { Card, Descricao, Titulo, MainContent, LinhaConteudo } from './styles'
+import { useEffect } from 'react'
 
 import Button from '../Button'
-import { useEffect } from 'react'
+import { Card, Descricao, Titulo, MainContent, LinhaConteudo } from './styles'
 
 export interface Food {
   foto: string

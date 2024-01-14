@@ -1,30 +1,29 @@
-import Button from '../Button'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { usePurchaseMutation } from '../../services/api'
+import { RootReducer } from '../../store'
+import { ShoppingStage, close, goToStage } from '../../store/reducers/cart'
+import Order from '../Order'
 import { CartContainer, Overlay, SidebarContainer } from './styles'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
-
-import Order from '../Order'
-import Delivery from '../Delivery'
-import Payment from '../Payment'
-
 const Sidebar = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const { isOpen, tabStage } = useSelector((state: RootReducer) => state.cart)
+  const [purchase, { reset }] = usePurchaseMutation()
 
   const dispatch = useDispatch()
-
-  const closeCart = () => {
+  const closeSidebar = () => {
     dispatch(close())
+    dispatch(goToStage(ShoppingStage.Cart))
+    if (tabStage === ShoppingStage.Completed) {
+      reset()
+    }
   }
 
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
+      <Overlay onClick={closeSidebar} />
       <SidebarContainer>
         <Order />
-        <Delivery />
-        <Payment />
       </SidebarContainer>
     </CartContainer>
   )

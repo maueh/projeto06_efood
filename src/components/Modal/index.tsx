@@ -1,21 +1,16 @@
-import { Food } from '../Food'
-import fechar from '../../assets/images/close.png'
-import Button from '../Button'
-import { ModalContainer, PageContainer } from './styles'
-import IconButton from '../IconButton'
-import { add, open } from '../../store/reducers/cart'
 import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
+import { formataPreco } from '../Order'
+import { Food } from '../Food'
+import Button from '../Button'
+import IconButton from '../IconButton'
+import fechar from '../../assets/images/close.png'
+import { ModalContainer, PageContainer } from './styles'
 
 type Props = {
   food: Food
   handleModal: (estaAberta: boolean) => void
-}
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 const Modal = ({ food, handleModal }: Props) => {

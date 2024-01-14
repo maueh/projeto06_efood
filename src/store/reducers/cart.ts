@@ -1,16 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Food } from '../../components/Food'
 
-type Ca
+export enum ShoppingStage {
+  Cart,
+  Delivery,
+  Payment,
+  Completed
+}
 
 type CartState = {
   items: Food[]
   isOpen: boolean
+  tabStage: ShoppingStage
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  tabStage: ShoppingStage.Cart
 }
 
 const cartSlice = createSlice({
@@ -28,14 +35,35 @@ const cartSlice = createSlice({
     remove: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
     },
+    cleanCart: (state) => {
+      state.items = []
+    },
     open: (state) => {
       state.isOpen = true
     },
     close: (state) => {
       state.isOpen = false
+    },
+    nextStage: (state) => {
+      state.tabStage = state.tabStage + 1
+    },
+    previousStage: (state) => {
+      state.tabStage = state.tabStage - 1
+    },
+    goToStage: (state, action: PayloadAction<ShoppingStage>) => {
+      state.tabStage = action.payload
     }
   }
 })
 
-export const { add, open, close, remove } = cartSlice.actions
+export const {
+  add,
+  open,
+  close,
+  remove,
+  nextStage,
+  previousStage,
+  goToStage,
+  cleanCart
+} = cartSlice.actions
 export default cartSlice.reducer

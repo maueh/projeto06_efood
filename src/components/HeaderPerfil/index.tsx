@@ -1,6 +1,6 @@
-import { TextCase } from '../../styles'
 import { Restaurant } from '../Restaurant'
 import { CabecalhoRestaurante } from './styles'
+import { TextCase } from '../../styles'
 
 type Props = {
   restaurante: Restaurant

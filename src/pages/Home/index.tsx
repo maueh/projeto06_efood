@@ -1,5 +1,5 @@
-import RestaurantsList from '../../components/RestaurantsList'
 import { useGetAllRestaurantsDataQuery } from '../../services/api'
+import RestaurantsList from '../../components/RestaurantsList'
 
 const Home = () => {
   const { data: restaurants, isLoading } = useGetAllRestaurantsDataQuery()

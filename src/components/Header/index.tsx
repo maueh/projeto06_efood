@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { RootReducer } from '../../store'
+import { open } from '../../store/reducers/cart'
 import logo from '../../assets/images/logo.png'
 import { CartButton, HeaderContainer, Topo } from './styles'
-import { open } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
 
 export type Props = {
   paginaInicial: boolean

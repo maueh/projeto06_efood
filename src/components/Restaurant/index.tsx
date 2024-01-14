@@ -1,4 +1,8 @@
 import Tag from '../Tag'
+import Button from '../Button'
+import { Food } from '../Food'
+import estrela from '../../assets/images/estrela.png'
+import { TextCase } from '../../styles'
 import {
   Card,
   Descricao,
@@ -8,11 +12,6 @@ import {
   Nota,
   LinhaConteudo
 } from './styles'
-
-import estrela from '../../assets/images/estrela.png'
-import Button from '../Button'
-import { Food } from '../Food'
-import { TextCase } from '../../styles'
 
 export type Restaurant = {
   id: number

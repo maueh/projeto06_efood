@@ -1,7 +1,6 @@
-import { Container, List } from './styles'
-
 import RestaurantCard from '../Restaurant'
 import { Restaurant } from '../Restaurant'
+import { Container, List } from './styles'
 
 export type Props = {
   restaurants: Restaurant[]
