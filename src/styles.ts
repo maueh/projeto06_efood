@@ -9,7 +9,8 @@ export const cores = {
   primaria: '#E66767',
   primariaClara1: '#FFEBD9',
   primariaClara2: '#FFF8F2',
-  amarela: '#FFB930'
+  amarela: '#FFB930',
+  cinzaEscuro: '#4B4B4B'
   // preta: '#111',
 }
 
@@ -81,5 +82,21 @@ export const EstiloGlobal = createGlobalStyle`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+  }
+
+  label {
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    color: ${cores.primariaClara1};
+  }
+
+  input {
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid ${cores.primariaClara1};
+    background-color: ${cores.primariaClara1};
+    padding: 8px;
+    color: ${cores.cinzaEscuro};
   }
 `

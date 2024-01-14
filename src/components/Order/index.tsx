@@ -1,20 +1,18 @@
-import Button from '../Button'
-import { CardFood, CartContainer, Overlay, Sidebar } from './styles'
-import excluir from '../../assets/images/lixeira-de-reciclagem.png'
-import IconButton from '../IconButton'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
+import Button from '../Button'
 import { formataPreco } from '../Modal'
+import { RootReducer } from '../../store'
 
-const Cart = () => {
+import { remove } from '../../store/reducers/cart'
+import { CardFood } from './styles'
+import IconButton from '../IconButton'
+
+import excluir from '../../assets/images/lixeira-de-reciclagem.png'
+
+const Order = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
-
-  const closeCart = () => {
-    dispatch(close())
-  }
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
@@ -25,11 +23,10 @@ const Cart = () => {
       return (total += valorAtual.preco)
     }, 0)
   }
-
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
+    <>
+      {' '}
+      <>
         <ul>
           {items.map((foodItem) => {
             return (
@@ -55,9 +52,9 @@ const Cart = () => {
         <Button type="button" title="Continuar com a entrega">
           Continuar com a entrega
         </Button>
-      </Sidebar>
-    </CartContainer>
+      </>
+    </>
   )
 }
 
-export default Cart
+export default Order

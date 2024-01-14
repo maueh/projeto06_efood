@@ -7,7 +7,7 @@ import Header from './components/Header'
 import { EstiloGlobal } from './styles'
 import Footer from './components/Footer'
 import { store } from './store'
-import Cart from './components/Cart'
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             </main>
           </div>
           <Footer />
-          <Cart />
+          <Sidebar />
         </div>
       </BrowserRouter>
     </Provider>

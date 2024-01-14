@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Food } from '../../components/Food'
 
+type Ca
+
 type CartState = {
   items: Food[]
   isOpen: boolean
