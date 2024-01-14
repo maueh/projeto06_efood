@@ -1,6 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
 
 import { RootReducer } from '../../store'
 import { remove, nextStage } from '../../store/reducers/cart'
@@ -11,39 +9,13 @@ import excluir from '../../assets/images/lixeira-de-reciclagem.png'
 import { CardFood } from './styles'
 
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
-
-  const form = useFormik({
-    initialValues: {
-      receiversName: '',
-      addressDelivery: '',
-      cityDelivery: '',
-      numberDelivery: '',
-      cepDelivery: '',
-      complementDelivery: '',
-      nameCard: '',
-      numberCard: '',
-      codeCard: '',
-      expireMonth: '',
-      expireYear: ''
-    },
-    validationSchema: {
-      receiversName: Yup.string().required('Campo obrigatório'),
-      addressDelivery: Yup.string().required('Campo obrigatório'),
-      numberCard: Yup.string()
-        .required('Campo obrigatório')
-        .length(12, 'O número do cartão precisa ter 12 dígitos')
-    },
-    onSubmit: (values) => {
-      console.log(values)
-    }
-  })
 
   if (!items.length) {
     return <h3>Nenhum item no carrinho</h3>

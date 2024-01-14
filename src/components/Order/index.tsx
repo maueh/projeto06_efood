@@ -28,7 +28,7 @@ export const formataPreco = (preco = 0) => {
 const Order = () => {
   const { items, tabStage } = useSelector((state: RootReducer) => state.cart)
 
-  const [purchase, { isLoading, isError, data, isSuccess, reset }] =
+  const [purchase, { isLoading, isError, data, isSuccess }] =
     usePurchaseMutation()
 
   const dispatch = useDispatch()
@@ -38,7 +38,7 @@ const Order = () => {
       dispatch(goToStage(ShoppingStage.Completed))
       dispatch(cleanCart())
     }
-  }, [isSuccess])
+  }, [isSuccess, tabStage, dispatch])
 
   const form = useFormik({
     initialValues: {
@@ -257,7 +257,7 @@ const Order = () => {
               <Button
                 title="Voltar para o carrinho"
                 type="button"
-                onClick={() => goToStage(ShoppingStage.Cart)}
+                onClick={() => dispatch(goToStage(ShoppingStage.Cart))}
               >
                 Voltar para o carrinho
               </Button>

@@ -48,7 +48,7 @@ const RestaurantCard = ({ restaurant }: Props) => (
         <Descricao>{restaurant.descricao}</Descricao>
         <Button
           type="link"
-          title="Acessar a página do restaturante"
+          title={`Acessar a página de ${restaurant.titulo}`}
           to={`/perfil/${restaurant.id}`}
         >
           Saiba mais

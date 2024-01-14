@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints, cores } from '../../styles'
-import { IconButtonStyle } from '../IconButton/styles'
 
 export const Overlay = styled.div`
   position: absolute;

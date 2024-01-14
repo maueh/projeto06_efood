@@ -31,7 +31,11 @@ const Button = ({
       </ButtonContainer>
     )
   }
-  return <ButtonLink to={to as string}>{children}</ButtonLink>
+  return (
+    <ButtonLink to={to as string} title={title}>
+      {children}
+    </ButtonLink>
+  )
 }
 
 export default Button

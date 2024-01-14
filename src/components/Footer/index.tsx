@@ -12,18 +12,18 @@ const Footer = () => (
         <img src={logo} alt="eFood" />
         <SocialLinks>
           <li>
-            <a href="#">
-              <img src={instagram} alt="Ir para Instagram de eFood" />
+            <a href="#" title="Ir para Instagram de eFood">
+              <img src={instagram} alt="Instagram" />
             </a>
           </li>
           <li>
-            <a href="#">
-              <img src={facebook} alt="Ir para Facebook de eFood" />
+            <a href="#" title="Ir para Facebook de eFood">
+              <img src={facebook} alt="Facebook" />
             </a>
           </li>
           <li>
-            <a href="#">
-              <img src={twitter} alt="Ir para Twitter de eFood" />
+            <a href="#" title="Ir para Twitter de eFood">
+              <img src={twitter} alt="Twitter" />
             </a>
           </li>
         </SocialLinks>
