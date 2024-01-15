@@ -10,7 +10,9 @@ export const colors = {
   lightPrimary_1: '#FFEBD9',
   lightPrimary_2: '#FFF8F2',
   yellow: '#FFB930',
-  lightGrey: '#4B4B4B'
+  mediumGrey: '#4B4B4B',
+  lightGrey_1: '#9c9c9c',
+  lightGrey_2: '#ccc'
 }
 
 export const breakpoints = {
@@ -96,6 +98,6 @@ export const EstiloGlobal = createGlobalStyle`
     border: 1px solid ${colors.lightPrimary_1};
     background-color: ${colors.lightPrimary_1};
     padding: 8px;
-    color: ${colors.lightGrey};
+    color: ${colors.mediumGrey};
   }
 `

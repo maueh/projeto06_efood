@@ -6,11 +6,17 @@ import FoodsList from '../../components/FoodsList'
 import Modal from '../../components/Modal'
 import HeaderPerfil from '../../components/HeaderPerfil'
 import { useGetRestaurantDataQuery } from '../../services/api'
+import Loader from '../../components/Loader'
+
+type RestaurantId = {
+  id: string
+}
 
 const Perfil = () => {
-  const { id } = useParams()
+  const { id } = useParams() as RestaurantId
 
-  const { data: restaurant } = useGetRestaurantDataQuery(id!)
+  // const { data: restaurant, isLoading } = useGetRestaurantDataQuery(id!)
+  const { data: restaurant, isLoading } = useGetRestaurantDataQuery(id)
 
   const [food, setFood] = useState<Food | null>()
 
@@ -30,18 +36,21 @@ const Perfil = () => {
     }
   }
 
+  /*
   //Exibe mensagem de carregamento da API
-  if (!restaurant) {
-    return <h3 className="container loading">Carregando...</h3>
-  }
+  if (isLoading) {
+    return <Loader />
+  }*/
 
-  return (
-    <>
-      <HeaderPerfil restaurant={restaurant} />
-      <FoodsList restaurant={restaurant} loadModal={loadModal} />
-      {food ? <Modal food={food} handleModal={handleModal} /> : null}
-    </>
-  )
+  if (restaurant) {
+    return (
+      <>
+        <HeaderPerfil restaurant={restaurant} />
+        <FoodsList restaurant={restaurant} loadModal={loadModal} />
+        {food ? <Modal food={food} handleModal={handleModal} /> : null}
+      </>
+    )
+  } else return <Loader />
 }
 
 export default Perfil

@@ -19,7 +19,11 @@ const Cart = () => {
   }
 
   if (!items.length) {
-    return <h3>Nenhum item no carrinho</h3>
+    return (
+      <S.Message>
+        <p className="empty">Nenhum item no carrinho</p>
+      </S.Message>
+    )
   }
 
   return (

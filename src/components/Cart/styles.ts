@@ -28,3 +28,12 @@ export const CardFood = styled.li`
     position: absolute;
   }
 `
+
+export const Message = styled.div`
+  .empty {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+`

@@ -1,8 +1,13 @@
 import { useGetAllRestaurantsDataQuery } from '../../services/api'
 import RestaurantsList from '../../components/RestaurantsList'
+import Loader from '../../components/Loader'
 
 const Home = () => {
   const { data: restaurants, isLoading } = useGetAllRestaurantsDataQuery()
+
+  if (isLoading) {
+    return <Loader></Loader>
+  }
 
   return (
     <>

@@ -12,12 +12,14 @@ type CartState = {
   items: Food[]
   isOpen: boolean
   tabStage: ShoppingStage
+  resetPurchase: boolean
 }
 
 const initialState: CartState = {
   items: [],
   isOpen: false,
-  tabStage: ShoppingStage.Cart
+  tabStage: ShoppingStage.Cart,
+  resetPurchase: false
 }
 
 const cartSlice = createSlice({
@@ -46,10 +48,20 @@ const cartSlice = createSlice({
     },
     goToStage: (state, action: PayloadAction<ShoppingStage>) => {
       state.tabStage = action.payload
+    },
+    setResetPurchase: (state, action: PayloadAction<boolean>) => {
+      state.resetPurchase = action.payload
     }
   }
 })
 
-export const { add, open, close, remove, goToStage, cleanCart } =
-  cartSlice.actions
+export const {
+  add,
+  open,
+  close,
+  remove,
+  goToStage,
+  cleanCart,
+  setResetPurchase
+} = cartSlice.actions
 export default cartSlice.reducer

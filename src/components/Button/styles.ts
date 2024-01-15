@@ -22,6 +22,11 @@ export const ButtonContainer = styled.button`
   @media (max-width: ${breakpoints.tablet}) {
     width: 100%;
   }
+
+  &:disabled {
+    color: ${colors.lightGrey_1};
+    background-color: ${colors.lightGrey_2};
+  }
 `
 
 export const ButtonLink = styled(Link)`
