@@ -3,15 +3,6 @@ import { useEffect } from 'react'
 import Button from '../Button'
 import * as S from './styles'
 
-export interface Food {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
-
 type Props = {
   food: Food
   loadModal: (food: Food) => void

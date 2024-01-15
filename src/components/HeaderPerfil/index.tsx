@@ -1,4 +1,3 @@
-import { Restaurant } from '../Restaurant'
 import { TextCase } from '../../styles'
 import * as S from './styles'
 

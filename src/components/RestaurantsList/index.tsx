@@ -1,5 +1,4 @@
 import RestaurantCard from '../Restaurant'
-import { Restaurant } from '../Restaurant'
 import * as S from './styles'
 
 export type Props = {

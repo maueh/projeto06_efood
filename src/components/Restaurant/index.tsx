@@ -1,20 +1,8 @@
 import Tag from '../Tag'
 import Button from '../Button'
-import { Food } from '../Food'
 import estrela from '../../assets/images/estrela.png'
 import { TextCase } from '../../styles'
 import * as S from './styles'
-
-export type Restaurant = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: Food[]
-}
 
 type Props = {
   restaurant: Restaurant

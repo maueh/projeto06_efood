@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Food } from '../../components/Food'
 
 export enum ShoppingStage {
   Cart,

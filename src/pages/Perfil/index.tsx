@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-import { Food } from '../../components/Food'
 import FoodsList from '../../components/FoodsList'
 import Modal from '../../components/Modal'
 import HeaderPerfil from '../../components/HeaderPerfil'
@@ -16,7 +15,7 @@ const Perfil = () => {
   const { id } = useParams() as RestaurantId
 
   // const { data: restaurant, isLoading } = useGetRestaurantDataQuery(id!)
-  const { data: restaurant, isLoading } = useGetRestaurantDataQuery(id)
+  const { data: restaurant } = useGetRestaurantDataQuery(id)
 
   const [food, setFood] = useState<Food | null>()
 

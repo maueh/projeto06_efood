@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
 import {
   ShoppingStage,

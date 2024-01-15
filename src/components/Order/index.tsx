@@ -17,6 +17,7 @@ import Cart from '../Cart'
 import Button from '../Button'
 import * as S from './styles'
 import Loader from '../Loader'
+import InputMask from 'react-input-mask'
 
 const Order = () => {
   const { items, tabStage, resetPurchase } = useSelector(
@@ -46,17 +47,17 @@ const Order = () => {
 
   const form = useFormik({
     initialValues: {
-      receiversName: 'Fulano',
-      addressDelivery: 'Rua Otoni',
-      cityDelivery: 'Limeira',
-      cepDelivery: '01234-567',
-      numberDelivery: '123',
-      complementDelivery: 'ap1',
-      nameCard: 'Fulano Nome Cartao',
-      numberCard: '1234567891',
-      codeCard: '111',
-      expireMonth: '2',
-      expireYear: '2025'
+      receiversName: '',
+      addressDelivery: '',
+      cityDelivery: '',
+      cepDelivery: '',
+      numberDelivery: '',
+      complementDelivery: '',
+      nameCard: '',
+      numberCard: '',
+      codeCard: '',
+      expireMonth: '',
+      expireYear: ''
     },
     validationSchema: Yup.object({
       receiversName: Yup.string()
@@ -209,7 +210,7 @@ const Order = () => {
               <div className="row">
                 <S.InputGroup>
                   <label>CEP</label>
-                  <input
+                  <InputMask
                     type="text"
                     name="cepDelivery"
                     id="cepDelivery"
@@ -218,6 +219,7 @@ const Order = () => {
                     onBlur={form.handleBlur}
                     inputMode="numeric"
                     className={checkInputHasError('cepDelivery') ? 'error' : ''}
+                    mask={'99999-999'}
                   />
                   <small>
                     {getErrorMessage('cepDelivery', form.errors.cepDelivery)}
@@ -307,7 +309,7 @@ const Order = () => {
               <div className="row fraction">
                 <S.InputGroup>
                   <label>Número do cartão</label>
-                  <input
+                  <InputMask
                     type="text"
                     name="numberCard"
                     id="numberCard"
@@ -315,6 +317,7 @@ const Order = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('numberCard') ? 'error' : ''}
+                    mask={'9999 9999 9999 9999'}
                   />
                   <small>
                     {getErrorMessage('numberCard', form.errors.numberCard)}
@@ -322,7 +325,7 @@ const Order = () => {
                 </S.InputGroup>
                 <S.InputGroup>
                   <label>CVV</label>
-                  <input
+                  <InputMask
                     type="text"
                     name="codeCard"
                     id="codeCard"
@@ -330,6 +333,7 @@ const Order = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('codeCard') ? 'error' : ''}
+                    mask={'999'}
                   />
                   <small>
                     {getErrorMessage('codeCard', form.errors.codeCard)}
@@ -339,7 +343,7 @@ const Order = () => {
               <div className="row">
                 <S.InputGroup>
                   <label>Mês de vencimento</label>
-                  <input
+                  <InputMask
                     type="text"
                     name="expireMonth"
                     id="expireMonth"
@@ -347,6 +351,9 @@ const Order = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireMonth') ? 'error' : ''}
+                    mask={'99'}
+                    maskChar={''}
+                    alwaysShowMask={true}
                   />
                   <small>
                     {getErrorMessage('expireMonth', form.errors.expireMonth)}
@@ -354,7 +361,7 @@ const Order = () => {
                 </S.InputGroup>
                 <S.InputGroup>
                   <label>Ano de vencimento</label>
-                  <input
+                  <InputMask
                     type="text"
                     name="expireYear"
                     id="expireYear"
@@ -362,6 +369,7 @@ const Order = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('expireYear') ? 'error' : ''}
+                    mask={'9999'}
                   />
                   <small>
                     {getErrorMessage('expireYear', form.errors.expireYear)}
@@ -390,7 +398,7 @@ const Order = () => {
 
         {isLoading ? <Loader /> : null}
 
-        {tabStage === ShoppingStage.Completed ? (
+        {tabStage === ShoppingStage.Completed && data ? (
           <>
             <h3>Pedido realizado - {data.orderId}</h3>
             <p>
