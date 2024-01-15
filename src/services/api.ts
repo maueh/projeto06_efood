@@ -7,7 +7,6 @@ type Products = {
 }
 
 type PurchasePayload = {
-  products: Products[]
   delivery: {
     receiver: string
     address: {
@@ -26,6 +25,7 @@ type PurchasePayload = {
       expires: { month: number; year: number }
     }
   }
+  products: Products[]
 }
 
 const api = createApi({

@@ -4,7 +4,7 @@ import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
 import { ShoppingStage, close, goToStage } from '../../store/reducers/cart'
 import Order from '../Order'
-import { CartContainer, Overlay, SidebarContainer } from './styles'
+import * as S from './styles'
 
 const Sidebar = () => {
   const { isOpen, tabStage } = useSelector((state: RootReducer) => state.cart)
@@ -20,12 +20,12 @@ const Sidebar = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeSidebar} />
-      <SidebarContainer>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeSidebar} />
+      <S.SidebarContainer>
         <Order />
-      </SidebarContainer>
-    </CartContainer>
+      </S.SidebarContainer>
+    </S.CartContainer>
   )
 }
 

@@ -1,16 +1,16 @@
-import { IconButtonStyle } from './styles'
+import * as S from './styles'
 
 type Props = {
   title: string
   onClick?: () => void
-  icone: string
+  icon: string
 }
 
-const IconButton = ({ title, icone, onClick }: Props) => {
+const IconButton = ({ title, icon, onClick }: Props) => {
   return (
-    <IconButtonStyle type="button" onClick={onClick} title={title}>
-      <img src={icone} alt="" />
-    </IconButtonStyle>
+    <S.IconButtonStyle type="button" onClick={onClick} title={title}>
+      <img src={icon} alt="" />
+    </S.IconButtonStyle>
   )
 }
 

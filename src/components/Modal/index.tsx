@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux'
 
 import { add, open } from '../../store/reducers/cart'
-import { formataPreco } from '../Order'
+import { parseToBrl } from '../../utils'
 import { Food } from '../Food'
 import Button from '../Button'
 import IconButton from '../IconButton'
 import fechar from '../../assets/images/close.png'
-import { ModalContainer, PageContainer } from './styles'
+import * as S from './styles'
 
 type Props = {
   food: Food
-  handleModal: (estaAberta: boolean) => void
+  handleModal: (isOpen: boolean) => void
 }
 
 const Modal = ({ food, handleModal }: Props) => {
@@ -24,8 +24,8 @@ const Modal = ({ food, handleModal }: Props) => {
 
   return (
     <>
-      <PageContainer>
-        <ModalContainer
+      <S.PageContainer>
+        <S.ModalContainer
           id="food-modal"
           className="container-dialog2"
           open={false}
@@ -43,7 +43,7 @@ const Modal = ({ food, handleModal }: Props) => {
             <h1>{food.nome}</h1>
 
             <IconButton
-              icone={fechar}
+              icon={fechar}
               title={`Fechar caixa de detalhes de ${food.nome}`}
               onClick={() => handleModal(false)}
             />
@@ -54,10 +54,10 @@ const Modal = ({ food, handleModal }: Props) => {
               title={`Adicionar ${food.nome} ao carrinho`}
               fullWidth={false}
               onClick={addToCart}
-            >{`Adicionar ao carrinho - ${formataPreco(food.preco)}`}</Button>
+            >{`Adicionar ao carrinho - ${parseToBrl(food.preco)}`}</Button>
           </div>
-        </ModalContainer>
-      </PageContainer>
+        </S.ModalContainer>
+      </S.PageContainer>
     </>
   )
 }

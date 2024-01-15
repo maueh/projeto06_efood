@@ -7,23 +7,11 @@ import { RootReducer } from '../../store'
 import { ShoppingStage, goToStage, cleanCart } from '../../store/reducers/cart'
 import { usePurchaseMutation } from '../../services/api'
 
+import { getTotalPrice, parseToBrl } from '../../utils'
 import Cart from '../Cart'
 import { Food } from '../Food'
 import Button from '../Button'
-import { Checkout, InputGroup } from './styles'
-
-export const getTotalPrice = (itemsPedido: Food[]) => {
-  return itemsPedido.reduce((total, valorAtual) => {
-    return (total += valorAtual.preco)
-  }, 0)
-}
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
+import * as S from './styles'
 
 const Order = () => {
   const { items, tabStage } = useSelector((state: RootReducer) => state.cart)
@@ -130,8 +118,15 @@ const Order = () => {
     return ''
   }
 
+  const checkInputHasError = (fieldname: string) => {
+    const isTouched = fieldname in form.touched
+    const isInvalid = fieldname in form.errors
+    const hasError = isTouched && isInvalid
+    return hasError
+  }
+
   return (
-    <Checkout>
+    <S.Checkout>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -146,7 +141,7 @@ const Order = () => {
             <>
               <h3>Entrega</h3>
               <fieldset>
-                <InputGroup>
+                <S.InputGroup>
                   <label>Quem irá receber</label>
                   <input
                     type="text"
@@ -155,6 +150,9 @@ const Order = () => {
                     value={form.values.receiversName}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('receiversName') ? 'error' : ''
+                    }
                   />
                   <small>
                     {getErrorMessage(
@@ -162,8 +160,8 @@ const Order = () => {
                       form.errors.receiversName
                     )}
                   </small>
-                </InputGroup>
-                <InputGroup>
+                </S.InputGroup>
+                <S.InputGroup>
                   <label>Endereço</label>
                   <input
                     type="text"
@@ -172,6 +170,9 @@ const Order = () => {
                     value={form.values.addressDelivery}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('addressDelivery') ? 'error' : ''
+                    }
                   />
                   <small>
                     {getErrorMessage(
@@ -179,8 +180,8 @@ const Order = () => {
                       form.errors.addressDelivery
                     )}
                   </small>
-                </InputGroup>
-                <InputGroup>
+                </S.InputGroup>
+                <S.InputGroup>
                   <label>Cidade</label>
                   <input
                     type="text"
@@ -189,13 +190,16 @@ const Order = () => {
                     value={form.values.cityDelivery}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('cityDelivery') ? 'error' : ''
+                    }
                   />
                   <small>
                     {getErrorMessage('cityDelivery', form.errors.cityDelivery)}
                   </small>
-                </InputGroup>
+                </S.InputGroup>
                 <div className="row">
-                  <InputGroup>
+                  <S.InputGroup>
                     <label>CEP</label>
                     <input
                       type="text"
@@ -205,12 +209,15 @@ const Order = () => {
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       inputMode="numeric"
+                      className={
+                        checkInputHasError('cepDelivery') ? 'error' : ''
+                      }
                     />
                     <small>
                       {getErrorMessage('cepDelivery', form.errors.cepDelivery)}
                     </small>
-                  </InputGroup>
-                  <InputGroup>
+                  </S.InputGroup>
+                  <S.InputGroup>
                     <label>Número</label>
                     <input
                       type="text"
@@ -220,6 +227,9 @@ const Order = () => {
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       inputMode="numeric"
+                      className={
+                        checkInputHasError('numberDelivery') ? 'error' : ''
+                      }
                     />
                     <small>
                       {getErrorMessage(
@@ -227,9 +237,9 @@ const Order = () => {
                         form.errors.numberDelivery
                       )}
                     </small>
-                  </InputGroup>
+                  </S.InputGroup>
                 </div>
-                <InputGroup>
+                <S.InputGroup>
                   <label>Complemento (opcional)</label>
                   <input
                     type="text"
@@ -238,6 +248,9 @@ const Order = () => {
                     value={form.values.complementDelivery}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('complementDelivery') ? 'error' : ''
+                    }
                   />
                   <small>
                     {getErrorMessage(
@@ -245,7 +258,7 @@ const Order = () => {
                       form.errors.complementDelivery
                     )}
                   </small>
-                </InputGroup>
+                </S.InputGroup>
               </fieldset>
               <Button
                 title="Continuar com o pagamento"
@@ -267,10 +280,10 @@ const Order = () => {
           {tabStage === ShoppingStage.Payment ? (
             <>
               <h3>
-                Pagamento - Valor a pagar {formataPreco(getTotalPrice(items))}
+                Pagamento - Valor a pagar {parseToBrl(getTotalPrice(items))}
               </h3>
               <fieldset>
-                <InputGroup>
+                <S.InputGroup>
                   <label>Nome no cartão</label>
                   <input
                     type="text"
@@ -279,13 +292,14 @@ const Order = () => {
                     value={form.values.nameCard}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={checkInputHasError('nameCard') ? 'error' : ''}
                   />
                   <small>
                     {getErrorMessage('nameCard', form.errors.nameCard)}
                   </small>
-                </InputGroup>
+                </S.InputGroup>
                 <div className="row fraction">
-                  <InputGroup>
+                  <S.InputGroup>
                     <label>Número do cartão</label>
                     <input
                       type="text"
@@ -294,12 +308,15 @@ const Order = () => {
                       value={form.values.numberCard}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
+                      className={
+                        checkInputHasError('numberCard') ? 'error' : ''
+                      }
                     />
                     <small>
                       {getErrorMessage('numberCard', form.errors.numberCard)}
                     </small>
-                  </InputGroup>
-                  <InputGroup>
+                  </S.InputGroup>
+                  <S.InputGroup>
                     <label>CVV</label>
                     <input
                       type="text"
@@ -308,14 +325,15 @@ const Order = () => {
                       value={form.values.codeCard}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
+                      className={checkInputHasError('codeCard') ? 'error' : ''}
                     />
                     <small>
                       {getErrorMessage('codeCard', form.errors.codeCard)}
                     </small>
-                  </InputGroup>
+                  </S.InputGroup>
                 </div>
                 <div className="row">
-                  <InputGroup>
+                  <S.InputGroup>
                     <label>Mês de vencimento</label>
                     <input
                       type="text"
@@ -324,12 +342,15 @@ const Order = () => {
                       value={form.values.expireMonth}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
+                      className={
+                        checkInputHasError('expireMonth') ? 'error' : ''
+                      }
                     />
                     <small>
                       {getErrorMessage('expireMonth', form.errors.expireMonth)}
                     </small>
-                  </InputGroup>
-                  <InputGroup>
+                  </S.InputGroup>
+                  <S.InputGroup>
                     <label>Ano de vencimento</label>
                     <input
                       type="text"
@@ -338,16 +359,19 @@ const Order = () => {
                       value={form.values.expireYear}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
+                      className={
+                        checkInputHasError('expireYear') ? 'error' : ''
+                      }
                     />
                     <small>
                       {getErrorMessage('expireYear', form.errors.expireYear)}
                     </small>
-                  </InputGroup>
+                  </S.InputGroup>
                 </div>
               </fieldset>
               <Button
                 title="Finalizar pagamento"
-                type="button"
+                type="submit"
                 onClick={form.handleSubmit}
               >
                 Finalizar pagamento
@@ -386,7 +410,7 @@ const Order = () => {
           ) : null}
         </form>
       </form>
-    </Checkout>
+    </S.Checkout>
   )
 }
 

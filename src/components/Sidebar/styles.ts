@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -27,8 +27,8 @@ export const CartContainer = styled.div`
 `
 
 export const SidebarContainer = styled.aside`
-  color: ${cores.primariaClara1};
-  background-color: ${cores.primaria};
+  color: ${colors.lightPrimary_1};
+  background-color: ${colors.primary};
   z-index: 1;
   padding: 32px 8px;
   font-size: 14px;
@@ -64,8 +64,8 @@ export const SidebarContainer = styled.aside`
   }
 
   li {
-    color: ${cores.primaria};
-    background-color: ${cores.primariaClara1};
+    color: ${colors.primary};
+    background-color: ${colors.lightPrimary_1};
     padding: 8px;
   }
 `

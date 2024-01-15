@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { IconButtonStyle } from '../IconButton/styles'
 
@@ -7,8 +7,8 @@ export const ModalContainer = styled.dialog`
   z-index: 1;
   display: flex;
   gap: 24px;
-  background-color: ${cores.primaria};
-  color: ${cores.branca};
+  background-color: ${colors.primary};
+  color: ${colors.white};
   align-self: center;
   border: none;
   padding: 32px;

@@ -1,21 +1,19 @@
 import { Restaurant } from '../Restaurant'
-import { CabecalhoRestaurante } from './styles'
 import { TextCase } from '../../styles'
+import * as S from './styles'
 
 type Props = {
-  restaurante: Restaurant
+  restaurant: Restaurant
 }
 
-const HeaderPerfil = ({ restaurante }: Props) => {
+const HeaderPerfil = ({ restaurant }: Props) => {
   return (
-    <CabecalhoRestaurante
-      style={{ backgroundImage: `url(${restaurante.capa})` }}
-    >
+    <S.RestaurantHeader style={{ backgroundImage: `url(${restaurant.capa})` }}>
       <div className="container">
-        <div className={TextCase[TextCase.capitalize]}>{restaurante.tipo}</div>
-        <h2>{restaurante.titulo}</h2>
+        <div className={TextCase[TextCase.capitalize]}>{restaurant.tipo}</div>
+        <h2>{restaurant.titulo}</h2>
       </div>
-    </CabecalhoRestaurante>
+    </S.RestaurantHeader>
   )
 }
 

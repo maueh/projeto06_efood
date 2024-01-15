@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Checkout = styled.div`
   label {
@@ -8,6 +8,12 @@ export const Checkout = styled.div`
 
   input {
     width: 100%;
+
+    &.error {
+      border-color: #f33;
+      color: #c33;
+      background-color: #fbb;
+    }
   }
 
   form {
@@ -44,6 +50,6 @@ export const InputGroup = styled.div`
   }
 
   small {
-    color: ${cores.primariaClara1};
+    color: ${colors.lightPrimary_1};
   }
 `

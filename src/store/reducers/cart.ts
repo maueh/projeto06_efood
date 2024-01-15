@@ -44,26 +44,12 @@ const cartSlice = createSlice({
     close: (state) => {
       state.isOpen = false
     },
-    nextStage: (state) => {
-      state.tabStage = state.tabStage + 1
-    },
-    previousStage: (state) => {
-      state.tabStage = state.tabStage - 1
-    },
     goToStage: (state, action: PayloadAction<ShoppingStage>) => {
       state.tabStage = action.payload
     }
   }
 })
 
-export const {
-  add,
-  open,
-  close,
-  remove,
-  nextStage,
-  previousStage,
-  goToStage,
-  cleanCart
-} = cartSlice.actions
+export const { add, open, close, remove, goToStage, cleanCart } =
+  cartSlice.actions
 export default cartSlice.reducer

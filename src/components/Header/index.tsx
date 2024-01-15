@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
 import logo from '../../assets/images/logo.png'
-import { CartButton, HeaderContainer, Topo } from './styles'
+import * as S from './styles'
 
 export type Props = {
-  paginaInicial: boolean
+  initialPage: boolean
 }
 
 const Header = () => {
@@ -18,22 +18,22 @@ const Header = () => {
   }
   const { items } = useSelector((state: RootReducer) => state.cart)
 
-  const paginaInicial = location.pathname === '/' ? true : false
+  const initialPage = location.pathname === '/' ? true : false
 
   return (
     <>
-      <HeaderContainer>
+      <S.HeaderContainer>
         <div className="container">
-          <Topo>
+          <S.Topo>
             <h1 className="distribute">
               <Link to="/">
                 <img src={logo} alt="eFood" />
               </Link>
             </h1>
 
-            {!paginaInicial ? (
+            {!initialPage ? (
               <>
-                <nav className="antecede distribute flex-start">
+                <nav className="precede distribute flex-start">
                   <ul>
                     <li>
                       <Link to="/">Restaurantes</Link>
@@ -41,21 +41,21 @@ const Header = () => {
                   </ul>
                 </nav>
                 <div className="distribute flex-end">
-                  <CartButton onClick={openCart}>
+                  <S.CartButton onClick={openCart}>
                     {items.length} produto(s) no carrinho
-                  </CartButton>
+                  </S.CartButton>
                 </div>
               </>
             ) : null}
-          </Topo>
+          </S.Topo>
 
-          {paginaInicial ? (
+          {initialPage ? (
             <div className="container">
               <h2>Viva experiências gastronômicas no conforto da sua casa</h2>
             </div>
           ) : null}
         </div>
-      </HeaderContainer>
+      </S.HeaderContainer>
     </>
   )
 }

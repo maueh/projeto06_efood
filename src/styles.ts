@@ -4,14 +4,13 @@ export enum TextCase {
   'capitalize'
 }
 
-export const cores = {
-  branca: '#FFF',
-  primaria: '#E66767',
-  primariaClara1: '#FFEBD9',
-  primariaClara2: '#FFF8F2',
-  amarela: '#FFB930',
-  cinzaEscuro: '#4B4B4B'
-  // preta: '#111',
+export const colors = {
+  white: '#FFF',
+  primary: '#E66767',
+  lightPrimary_1: '#FFEBD9',
+  lightPrimary_2: '#FFF8F2',
+  yellow: '#FFB930',
+  lightGrey: '#4B4B4B'
 }
 
 export const breakpoints = {
@@ -32,8 +31,8 @@ export const EstiloGlobal = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.primariaClara2};
-    color: ${cores.primaria};
+    background-color: ${colors.lightPrimary_2};
+    color: ${colors.primary};
     font-size: 10px;
 
   }
@@ -88,15 +87,15 @@ export const EstiloGlobal = createGlobalStyle`
     font-weight: 700;
     font-size: 14px;
     display: flex;
-    color: ${cores.primariaClara1};
+    color: ${colors.lightPrimary_1};
   }
 
   input {
     font-weight: 700;
     font-size: 14px;
-    border: 1px solid ${cores.primariaClara1};
-    background-color: ${cores.primariaClara1};
+    border: 1px solid ${colors.lightPrimary_1};
+    background-color: ${colors.lightPrimary_1};
     padding: 8px;
-    color: ${cores.cinzaEscuro};
+    color: ${colors.lightGrey};
   }
 `

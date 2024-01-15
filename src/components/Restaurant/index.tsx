@@ -3,15 +3,7 @@ import Button from '../Button'
 import { Food } from '../Food'
 import estrela from '../../assets/images/estrela.png'
 import { TextCase } from '../../styles'
-import {
-  Card,
-  Descricao,
-  Titulo,
-  Infos,
-  MainContent,
-  Nota,
-  LinhaConteudo
-} from './styles'
+import * as S from './styles'
 
 export type Restaurant = {
   id: number
@@ -30,22 +22,22 @@ type Props = {
 
 const RestaurantCard = ({ restaurant }: Props) => (
   <>
-    <Card>
+    <S.Card>
       <img src={restaurant.capa} alt={restaurant.titulo} />
 
-      <MainContent>
-        <Infos>
+      <S.MainContent>
+        <S.Infos>
           {restaurant.destacado && <Tag key="destaque">Destaque da semana</Tag>}
           <Tag textCase={TextCase.capitalize}>{restaurant.tipo}</Tag>
-        </Infos>
-        <LinhaConteudo>
-          <Titulo>{restaurant.titulo}</Titulo>
-          <Nota>
+        </S.Infos>
+        <S.Row>
+          <S.Title>{restaurant.titulo}</S.Title>
+          <S.Rating>
             <span>{restaurant.avaliacao}</span>
             <img src={estrela} alt="" />
-          </Nota>
-        </LinhaConteudo>
-        <Descricao>{restaurant.descricao}</Descricao>
+          </S.Rating>
+        </S.Row>
+        <S.Description>{restaurant.descricao}</S.Description>
         <Button
           type="link"
           title={`Acessar a página de ${restaurant.titulo}`}
@@ -53,8 +45,8 @@ const RestaurantCard = ({ restaurant }: Props) => (
         >
           Saiba mais
         </Button>
-      </MainContent>
-    </Card>
+      </S.MainContent>
+    </S.Card>
   </>
 )
 

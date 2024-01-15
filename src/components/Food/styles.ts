@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Card = styled.div`
-  background-color: ${cores.primaria};
-  color: ${cores.primariaClara1};
+  background-color: ${colors.primary};
+  color: ${colors.lightPrimary_1};
   position: relative;
-  border: 8px solid ${cores.primaria};
+  border: 8px solid ${colors.primary};
   border-radius: 8px;
 
   img {
@@ -16,20 +16,16 @@ export const Card = styled.div`
   }
 `
 export const MainContent = styled.div`
-  border: 1px solid ${cores.primaria};
+  border: 1px solid ${colors.primary};
 `
 
-export const LinhaConteudo = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-export const Titulo = styled.h3`
+export const Title = styled.h3`
   font-weight: bold;
   font-size: 16px;
   display: block;
   margin-top: 8px;
 `
-export const Descricao = styled.p`
+export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;

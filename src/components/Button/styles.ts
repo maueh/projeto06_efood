@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const ButtonContainer = styled.button`
   border: none;
-  color: ${cores.primaria};
-  background-color: ${cores.primariaClara1};
+  color: ${colors.primary};
+  background-color: ${colors.lightPrimary_1};
   font-size: 14px;
   font-weight: bold;
   padding: 4px 6px;
@@ -25,8 +25,8 @@ export const ButtonContainer = styled.button`
 `
 
 export const ButtonLink = styled(Link)`
-  color: ${cores.branca};
-  background-color: ${cores.primaria};
+  color: ${colors.white};
+  background-color: ${colors.primary};
   font-size: 14px;
   font-weight: bold;
   padding: 4px 6px;

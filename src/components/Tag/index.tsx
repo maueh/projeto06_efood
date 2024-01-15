@@ -1,5 +1,5 @@
 import { TextCase } from '../../styles'
-import { TagContainer } from './styles'
+import * as S from './styles'
 
 export type Props = {
   size?: 'small' | 'big'
@@ -8,9 +8,9 @@ export type Props = {
 }
 
 const Tag = ({ children, size, textCase }: Props) => (
-  <TagContainer size={size} className={textCase?.toString()}>
+  <S.TagContainer size={size} className={textCase?.toString()}>
     {children}
-  </TagContainer>
+  </S.TagContainer>
 )
 
 export default Tag

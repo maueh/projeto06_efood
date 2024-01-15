@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Card = styled.div`
   box-sizing: border-box;
-  background-color: ${cores.branca};
+  background-color: ${colors.white};
 
-  border: 1px solid ${cores.primaria};
+  border: 1px solid ${colors.primary};
 
   padding: 0px;
   position: relative;
@@ -27,16 +27,16 @@ export const Card = styled.div`
 `
 export const MainContent = styled.div`
   padding: 0 8px 8px 8px;
-  /* border: 4px solid ${cores.primaria}; */
+  /* border: 4px solid ${colors.primary}; */
 `
 
-export const LinhaConteudo = styled.div`
+export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
 `
 
-export const Nota = styled.span`
+export const Rating = styled.span`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -51,13 +51,13 @@ export const Nota = styled.span`
   }
 `
 
-export const Titulo = styled.h3`
+export const Title = styled.h3`
   font-weight: bold;
   font-size: 18px;
   display: block;
   margin-bottom: 8px;
 `
-export const Descricao = styled.p`
+export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;

@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootReducer } from '../../store'
-import { remove, nextStage } from '../../store/reducers/cart'
-import { formataPreco, getTotalPrice } from '../Order'
+import { ShoppingStage, goToStage, remove } from '../../store/reducers/cart'
+import { getTotalPrice, parseToBrl } from '../../utils'
+
 import Button from '../Button'
 import IconButton from '../IconButton'
-import excluir from '../../assets/images/lixeira-de-reciclagem.png'
-import { CardFood } from './styles'
+import iconRemove from '../../assets/images/lixeira-de-reciclagem.png'
+import * as S from './styles'
 
 const Cart = () => {
   const { items } = useSelector((state: RootReducer) => state.cart)
@@ -26,29 +27,29 @@ const Cart = () => {
       <ul>
         {items.map((foodItem) => {
           return (
-            <CardFood key={foodItem.id}>
+            <S.CardFood key={foodItem.id}>
               <img className="food-image" src={foodItem.foto} alt="" />
               <div>
                 <h3>{foodItem.nome}</h3>
-                <p>{formataPreco(foodItem.preco)}</p>
+                <p>{parseToBrl(foodItem.preco)}</p>
                 <IconButton
                   title={`Excluir ${foodItem.nome}`}
-                  icone={excluir}
+                  icon={iconRemove}
                   onClick={() => removeItem(foodItem.id)}
                 />
               </div>
-            </CardFood>
+            </S.CardFood>
           )
         })}
       </ul>
       <p className="totalPrice">
         Valor total{' '}
-        <span className="right">{formataPreco(getTotalPrice(items))}</span>
+        <span className="right">{parseToBrl(getTotalPrice(items))}</span>
       </p>
       <Button
         type="button"
         title="Continuar com a entrega"
-        onClick={() => dispatch(nextStage())}
+        onClick={() => dispatch(goToStage(ShoppingStage.Delivery))}
       >
         Continuar com a entrega
       </Button>

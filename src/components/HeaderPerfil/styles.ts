@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
-export const CabecalhoRestaurante = styled.div`
+export const RestaurantHeader = styled.div`
   background-color: aliceblue;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,7 +13,7 @@ export const CabecalhoRestaurante = styled.div`
   padding-top: 25px;
   padding-bottom: 32px;
   font-weight: 100;
-  color: ${cores.branca};
+  color: ${colors.white};
   position: relative;
 
   div {

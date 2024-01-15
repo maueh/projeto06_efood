@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import fundo from '../../assets/images/fundo.png'
 // import fundoRestaurante from '../../assets/images/imagem_1_fundo.png'
 
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeaderContainer = styled.header`
-  background-color: ${cores.primariaClara1};
+  background-color: ${colors.lightPrimary_1};
   background-image: url(${fundo});
   width: 100%;
   /* height: 384px; */
@@ -22,7 +22,7 @@ export const HeaderContainer = styled.header`
   a,
   p {
     text-decoration: none;
-    color: ${cores.primaria};
+    color: ${colors.primary};
     font-size: 18px;
     font-weight: 900;
   }
@@ -64,7 +64,7 @@ export const HeaderContainer = styled.header`
     }
   }
 
-  .antecede {
+  .precede {
     order: -1;
   }
 
@@ -101,7 +101,7 @@ export const Topo = styled.div`
 `
 
 export const CartButton = styled.button`
-  color: ${cores.primaria};
+  color: ${colors.primary};
   font-size: 18px;
   font-weight: 900;
   background: none;

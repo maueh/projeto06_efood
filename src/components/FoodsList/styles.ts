@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.section`
   padding: 80px 0 120px 0;
-  background-color: ${cores.primariaClara2};
+  background-color: ${colors.lightPrimary_2};
 
   @media (max-width: 1024px) {
     padding: 40px 16px;

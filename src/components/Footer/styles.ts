@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeaderContainer = styled.footer`
-  background-color: ${cores.primariaClara1};
+  background-color: ${colors.lightPrimary_1};
   width: 100%;
   height: 298px;
   padding: 40px;

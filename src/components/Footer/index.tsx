@@ -3,14 +3,14 @@ import instagram from '../../assets/images/instagram.png'
 import facebook from '../../assets/images/facebook.png'
 import twitter from '../../assets/images/twitter.png'
 
-import { HeaderContainer, SocialLinks } from './styles'
+import * as S from './styles'
 
 const Footer = () => (
-  <HeaderContainer>
+  <S.HeaderContainer>
     <div className="container">
       <div>
         <img src={logo} alt="eFood" />
-        <SocialLinks>
+        <S.SocialLinks>
           <li>
             <a href="#" title="Ir para Instagram de eFood">
               <img src={instagram} alt="Instagram" />
@@ -26,7 +26,7 @@ const Footer = () => (
               <img src={twitter} alt="Twitter" />
             </a>
           </li>
-        </SocialLinks>
+        </S.SocialLinks>
       </div>
       <p>
         A efood é uma plataforma para divulgação de estabelecimentos, a
@@ -34,7 +34,7 @@ const Footer = () => (
         estabelecimento contratado.
       </p>
     </div>
-  </HeaderContainer>
+  </S.HeaderContainer>
 )
 
 export default Footer

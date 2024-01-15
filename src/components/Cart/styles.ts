@@ -22,16 +22,6 @@ export const CardFood = styled.li`
     margin-bottom: 16px;
   }
 
-  .excluir {
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 8px;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-  }
-
   ${IconButtonStyle} {
     right: 0;
     bottom: 0;

@@ -10,7 +10,7 @@ import { useGetRestaurantDataQuery } from '../../services/api'
 const Perfil = () => {
   const { id } = useParams()
 
-  const { data: restaurante } = useGetRestaurantDataQuery(id!)
+  const { data: restaurant } = useGetRestaurantDataQuery(id!)
 
   const [food, setFood] = useState<Food | null>()
 
@@ -18,27 +18,27 @@ const Perfil = () => {
     console.log(`Em Perfil, food = ${food?.nome}`)
   }, [food])
 
-  function carregarModal(food: Food) {
+  function loadModal(food: Food) {
     console.log(`Set food para ${food.nome}`)
     setFood(food)
   }
 
-  function handleModal(estaAberta: boolean) {
+  function handleModal(isOpen: boolean) {
     console.log(`Chamada de handleModal`)
-    if (!estaAberta) {
+    if (!isOpen) {
       setFood(null)
     }
   }
 
   //Exibe mensagem de carregamento da API
-  if (!restaurante) {
+  if (!restaurant) {
     return <h3 className="container loading">Carregando...</h3>
   }
 
   return (
     <>
-      <HeaderPerfil restaurante={restaurante} />
-      <FoodsList restaurant={restaurante} carregarModal={carregarModal} />
+      <HeaderPerfil restaurant={restaurant} />
+      <FoodsList restaurant={restaurant} loadModal={loadModal} />
       {food ? <Modal food={food} handleModal={handleModal} /> : null}
     </>
   )

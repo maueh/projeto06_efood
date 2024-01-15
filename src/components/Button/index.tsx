@@ -1,13 +1,12 @@
-import { ButtonContainer, ButtonLink } from './styles'
+import * as S from './styles'
 
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   fullWidth?: boolean
   title: string
   to?: string
   onClick?: () => void
   children: string
-  submit?: boolean
 }
 
 const Button = ({
@@ -16,25 +15,24 @@ const Button = ({
   to,
   onClick,
   children,
-  fullWidth = true,
-  submit
+  fullWidth = true
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
-      <ButtonContainer
-        type={submit ? 'submit' : 'button'}
+      <S.ButtonContainer
+        type={type}
         title={title}
         onClick={onClick}
         className={fullWidth ? 'fullWidth' : "'"}
       >
         {children}
-      </ButtonContainer>
+      </S.ButtonContainer>
     )
   }
   return (
-    <ButtonLink to={to as string} title={title}>
+    <S.ButtonLink to={to as string} title={title}>
       {children}
-    </ButtonLink>
+    </S.ButtonLink>
   )
 }
 
